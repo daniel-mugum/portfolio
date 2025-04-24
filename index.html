@@ -3,133 +3,249 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Daniel Muguma - Portfolio</title>
+  <title>Daniel Muguma - Électronique & Créativité</title>
   <style>
-    body {
+    * {
       margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
-      color: #333;
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 31, 63, 0.95));
+      color: white;
       scroll-behavior: smooth;
     }
+
     header {
-      background: #1e3c72;
-      background: linear-gradient(to right, #2a5298, #1e3c72);
-      color: white;
-      padding: 3rem 1rem;
+      background: rgba(0, 0, 0, 0.95);
+      padding: 20px;
       text-align: center;
-      animation: fadeIn 1.5s ease;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
+
     header h1 {
-      margin: 0;
-      font-size: 2.5rem;
+      font-size: 2.5em;
+      color: #00aaff;
+      animation: fadeIn 2s ease-in-out forwards;
     }
+
     nav {
-      margin-top: 1rem;
+      margin-top: 10px;
     }
+
     nav a {
-      margin: 0 1rem;
-      color: #fff;
+      margin: 0 15px;
+      color: #ccc;
       text-decoration: none;
       font-weight: bold;
+      transition: color 0.3s;
     }
-    .container {
-      padding: 2rem;
+
+    nav a:hover {
+      color: #00aaff;
+    }
+
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-image: url('https://source.unsplash.com/1600x900/?technology,arduino');
+      background-size: cover;
+      background-position: center;
+      text-shadow: 0 2px 5px black;
+      text-align: center;
+      padding: 20px;
+      transition: transform 0.3s ease;
+    }
+
+    .hero:hover {
+      transform: scale(1.02);
+    }
+
+    .hero h2 {
+      font-size: 3em;
+      color: #00ccff;
+      animation: fadeInDown 2s ease forwards;
+    }
+
+    .hero p {
+      max-width: 700px;
+      margin-top: 20px;
+      font-size: 1.2em;
+      animation: fadeIn 3s ease forwards;
+    }
+
+    section {
+      padding: 80px 20px;
       max-width: 1000px;
       margin: auto;
     }
-    section {
-      margin-bottom: 4rem;
-      animation: slideUp 1s ease;
+
+    h2.section-title {
+      text-align: center;
+      margin-bottom: 40px;
+      color: #00aaff;
+      font-size: 2em;
     }
-    h2 {
-      font-size: 2rem;
-      border-left: 5px solid #1e3c72;
-      padding-left: 0.5rem;
+
+    .content {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
     }
+
     .card {
-      background: white;
-      padding: 1.5rem;
+      background: rgba(0, 31, 63, 1);
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(0, 170, 255, 0.8);
+      transition: transform 0.3s, background 0.3s;
+    }
+
+    .card:hover {
+      transform: scale(1.03);
+      background: rgba(0, 31, 63, 1);
+    }
+
+    .card h3 {
+      color: #00ccff;
+    }
+
+    .card p {
+      margin-top: 10px;
+      color: #e0e0e0;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .gallery img {
+      width: 100%;
       border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.6);
       transition: transform 0.3s ease;
     }
-    .card:hover {
-      transform: translateY(-5px);
+
+    .gallery img:hover {
+      transform: scale(1.05);
     }
+
     footer {
       text-align: center;
-      padding: 2rem;
-      background-color: #1e3c72;
-      color: white;
-      font-size: 0.9rem;
+      padding: 30px;
+      background-color: #000;
+      color: #aaa;
     }
+
     @keyframes fadeIn {
-      0% { opacity: 0; transform: translateY(-20px); }
-      100% { opacity: 1; transform: translateY(0); }
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
-    @keyframes slideUp {
-      0% { opacity: 0; transform: translateY(40px); }
-      100% { opacity: 1; transform: translateY(0); }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 768px) {
+      .hero h2 {
+        font-size: 2em;
+      }
+
+      .hero p {
+        font-size: 1em;
+      }
+
+      nav a {
+        display: inline-block;
+        margin: 5px;
+      }
     }
   </style>
 </head>
 <body>
   <header>
     <h1>Daniel Muguma</h1>
-    <p>Ingénieur Électronicien | Monteur Vidéo | Designer Photo | Développeur Web Freelance</p>
     <nav>
-      <a href="#apropos">À propos</a>
+      <a href="#arduino">Arduino</a>
+      <a href="#photo-video">Photo/Video</a>
       <a href="#competences">Compétences</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
 
-  <div class="container">
-    <section id="apropos">
-      <h2>À propos de moi</h2>
-      <div class="card">
-        <p>Je suis Daniel Muguma, un professionnel passionné par l'innovation et la création. Fort de mes expériences en ingénierie électronique, montage vidéo, design photo et développement web, j'apporte une approche polyvalente à chaque projet que j'entreprends.</p>
-      </div>
-    </section>
-
-    <section id="competences">
-      <h2>Compétences</h2>
-      <div class="card">
-        <ul>
-          <li>⚡ Ingénierie Électronique</li>
-          <li>🎬 Montage Vidéo</li>
-          <li>🎨 Design Graphique (Photoshop, Illustrator)</li>
-          <li>🌐 Développement Web (HTML, CSS, JavaScript, React)</li>
-        </ul>
-      </div>
-    </section>
-
-    <section id="contact">
-      <h2>Contact</h2>
-      <div class="card">
-        <p>Pour toute collaboration ou question, n'hésitez pas à m'écrire :</p>
-        <p><strong>Email :</strong> <a href="mailto:daniel.muguma@email.com">daniel.muguma@email.com</a></p>
-      </div>
-    </section>
+  <div class="hero">
+    <h2>Électronique, Arduino & Création Visuelle</h2>
+    <p>Un mélange de technologie, créativité et passion. Découvrez mes projets autour de l'Arduino, de l'électronique et de la production visuelle.</p>
   </div>
 
+  <section id="arduino">
+    <h2 class="section-title">Développement avec Arduino</h2>
+    <div class="content">
+      <div class="card">
+        <h3>Arduino</h3>
+        <p>Avec Arduino, je crée des projets interactifs contrôlés par microcontrôleur, comme des systèmes domotiques, des robots et des stations de mesure environnementale. Je programme en C++ et j'intègre capteurs, moteurs, écrans OLED et modules Bluetooth ou Wi-Fi.</p>
+      </div>
+      <div class="card">
+        <h3>Électronique</h3>
+        <p>Je conçois et assemble des circuits imprimés, réalise des soudures de précision, et teste les systèmes embarqués. J'utilise des simulateurs et outils de prototypage pour créer des circuits analogiques et numériques fiables.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="photo-video">
+    <h2 class="section-title">Montage Photo et Vidéo</h2>
+    <div class="content">
+      <div class="card">
+        <h3>Montage Photo</h3>
+        <p>Je travaille avec des logiciels comme Photoshop et Lightroom pour retoucher des images, corriger les couleurs et créer des compositions graphiques originales. Mon objectif est de raconter une histoire visuelle avec chaque cliché.</p>
+      </div>
+      <div class="card">
+        <h3>Montage Vidéo</h3>
+        <p>J’utilise Premiere Pro, After Effects et DaVinci Resolve pour monter des vidéos dynamiques, en intégrant transitions, musiques, effets visuels et titrages. Je produis du contenu pour YouTube, des clips promotionnels ou encore des courts-métrages.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="competences">
+    <h2 class="section-title">Mes Compétences</h2>
+    <div class="content">
+      <div class="card">
+        <h3>Développement Web</h3>
+        <p>Je conçois des sites web modernes et responsives avec HTML, CSS et JavaScript. J’intègre également des frameworks comme React pour construire des interfaces dynamiques et optimisées pour tous les supports.</p>
+        <p>Je travaille aussi sur l’expérience utilisateur (UX) et l’accessibilité pour que chaque visiteur profite pleinement du site.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2 class="section-title">Contactez-moi</h2>
+    <div style="text-align: center">
+      <p>Adresse e-mail : <strong>daniel0muguma@gmail.com</strong></p>
+      <p>WhatsApp : <strong>+243 982686531</strong></p>
+      <div class="gallery">
+        <img src="_DSC2788 copy.jpg" alt="Daniel Muguma">
+      </div>
+    </div>
+  </section>
+
   <footer>
-    <p>&copy; 2025 Daniel Muguma - Tous droits réservés</p>
+    &copy; 2025 Daniel Muguma - Créatif technologique
   </footer>
 
   <script>
-    // Exemple d'animation JS : effet de surbrillance au scroll
-    const sections = document.querySelectorAll('section');
     window.addEventListener('scroll', () => {
-      sections.forEach(section => {
-        const top = window.scrollY;
-        const offset = section.offsetTop - 100;
-        const height = section.offsetHeight;
-        if (top >= offset && top < offset + height) {
-          section.style.opacity = '1';
-        }
-      });
+      const y = window.scrollY;
+      document.body.style.background = `linear-gradient(to bottom, rgba(0, 0, 0, 1) ${y/3}px, rgba(0, 31, 63, 0.95))`;
     });
   </script>
 </body>
